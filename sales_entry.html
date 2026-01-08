@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales Entry</title>
+
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="sales_entry.css" />
+  </head>
+  <body>
+    <!-- ====== PAGE WRAPPER ====== -->
+    <div class="page-container">
+      <!-- ====== SIDEBAR ====== -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2 class="logo">Karibu Groceries</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="nav-item">
+              <button
+                class="nav-button"
+                onclick="window.location.href='stock_management.html'"
+              >
+                Stock Management
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-button"
+                onclick="window.location.href='credit_sales_management.html'"
+              >
+                Credit Sales
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-button"
+                onclick="window.location.href='dashboard.html'"
+              >
+                Dashboard
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-button"
+                onclick="window.location.href='directors_sales_overview.html'"
+              >
+                Sales Overview
+              </button>
+            </li>
+            <li class="nav-item active">
+              <button
+                class="nav-button"
+                onclick="window.location.href='sales_entry.html'"
+              >
+                Sales Entry
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-button"
+                onclick="window.location.href='produce_procurement_form.html'"
+              >
+                Produce Procurement
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- ====== MAIN CONTENT ====== -->
+      <main class="main-content">
+        <!-- ====== TOP BAR ====== -->
+        <header class="topbar">
+          <h1 class="page-title">Sales Entry</h1>
+        </header>
+
+        <!-- ====== FORM SECTION ====== -->
+        <section class="content-section">
+          <form class="sales-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Customer Name</label>
+                <input type="text" required />
+              </div>
+
+              <div class="form-group">
+                <label>Product</label>
+                <input type="text" required />
+              </div>
+
+              <div class="form-group">
+                <label>Quantity</label>
+                <input type="number" required />
+              </div>
+
+              <div class="form-group">
+                <label>Unit Price</label>
+                <input type="number" required />
+              </div>
+
+              <div class="form-group">
+                <label>Total Amount</label>
+                <input type="number" readonly />
+              </div>
+
+              <div class="form-group">
+                <label>Sale Date</label>
+                <input type="date" required />
+              </div>
+
+              <div class="form-group">
+                <label>Payment Type</label>
+                <select required>
+                  <option value="">Select</option>
+                  <option>Cash</option>
+                  <option>Credit</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save Sale</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <!-- ====== PAGE SCRIPT ====== -->
+    <script>
+      const quantityInput = document.querySelector(
+        '.sales-form input[type="number"]'
+      );
+      const unitPriceInput = document.querySelectorAll(
+        '.sales-form input[type="number"]'
+      )[1];
+      const totalAmountInput = document.querySelector(
+        ".sales-form input[readonly]"
+      );
+
+      function calculateTotal() {
+        const quantity = parseFloat(quantityInput.value) || 0;
+        const unitPrice = parseFloat(unitPriceInput.value) || 0;
+        totalAmountInput.value = quantity * unitPrice;
+      }
+
+      quantityInput.addEventListener("input", calculateTotal);
+      unitPriceInput.addEventListener("input", calculateTotal);
+    </script>
+  </body>
+</html>

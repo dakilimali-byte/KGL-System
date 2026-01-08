@@ -1,0 +1,244 @@
+/* ==============================
+   RESET & BASE STYLES
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #1f2933;
+}
+
+/* ==============================
+   PAGE LAYOUT
+============================== */
+
+.page-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ==============================
+   SIDEBAR
+============================== */
+
+.sidebar {
+    width: 260px;
+    background-color: #0f172a;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.sidebar-nav {
+    padding: 16px 0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.nav-item {
+    margin-bottom: 4px;
+}
+
+.nav-button {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #cbd5e1;
+    padding: 14px 24px;
+    text-align: left;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-button:hover {
+    background-color: #1e293b;
+    color: #ffffff;
+}
+
+.nav-item.active .nav-button {
+    background-color: #1e40af;
+    color: #ffffff;
+}
+
+/* ==============================
+   MAIN CONTENT
+============================== */
+
+.main-content {
+    flex: 1;
+    padding: 24px 32px;
+}
+
+/* ==============================
+   TOP BAR
+============================== */
+
+.topbar {
+    margin-bottom: 28px;
+}
+
+.page-title {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+/* ==============================
+   CONTENT SECTION
+============================== */
+
+.content-section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 28px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* ==============================
+   FORM
+============================== */
+
+.sales-form {
+    width: 100%;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px 14px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.form-group input[readonly] {
+    background-color: #f1f5f9;
+}
+
+/* ==============================
+   FORM ACTIONS
+============================== */
+
+.form-actions {
+    margin-top: 28px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+/* ==============================
+   BUTTONS
+============================== */
+
+.btn {
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #1e40af;
+}
+
+.btn-secondary {
+    background-color: #e5e7eb;
+    color: #1f2933;
+}
+
+.btn-secondary:hover {
+    background-color: #d1d5db;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 1024px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .sidebar-nav ul {
+        display: flex;
+    }
+
+    .nav-button {
+        white-space: nowrap;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 22px;
+    }
+}

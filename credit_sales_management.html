@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Credit Sales Management</title>
+
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="credit_sales_management.css" />
+  </head>
+  <body>
+    <!-- ====== PAGE WRAPPER ====== -->
+    <div class="page-container">
+      <!-- ====== SIDEBAR ====== -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2 class="logo">Karibu Groceries</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="nav-item">
+             <button
+                class="nav-button"
+                onclick="window.location.href='stock_management.html'"
+              >
+                Stock Management
+              </button>
+            </li>
+            <li class="nav-item active">
+               <button
+                class="nav-button"
+                onclick="window.location.href='credit_sales_management.html'"
+              >
+                Credit Sales
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-button"
+                onclick="window.location.href='dashboard.html'"
+              >
+                Dashboard
+              </button>
+            </li>
+               <li class="nav-item">
+              <button
+                class="nav-button"
+                onclick="window.location.href='directors_sales_overview.html'"
+              >
+                Sales Overview
+              </button>
+            </li>
+            <li class="nav-item">
+                <button
+                class="nav-button"
+                onclick="window.location.href='sales_entry.html'"
+              >
+                Sales Entry
+              </button>
+            </li>
+             <li class="nav-item">
+              <button
+                class="nav-button"
+                onclick="window.location.href='produce_procurement_form.html'"
+              >
+                Produce Procurement
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- ====== MAIN CONTENT ====== -->
+      <main class="main-content">
+        <!-- ====== TOP BAR ====== -->
+        <header class="topbar">
+          <h1 class="page-title">Credit Sales Management</h1>
+
+          <div class="topbar-actions">
+            <button class="btn btn-primary" id="addCreditSaleBtn">
+              Add Credit Sale
+            </button>
+          </div>
+        </header>
+
+        <!-- ====== CONTENT SECTION ====== -->
+        <section class="content-section">
+          <!-- ====== CREDIT SALES TABLE ====== -->
+          <div class="table-container">
+            <table class="credit-table">
+              <thead>
+                <tr>
+                  <th>Customer Name</th>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>Total Amount</th>
+                  <th>Due Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>John Doe</td>
+                  <td>Maize Flour</td>
+                  <td>10</td>
+                  <td>UGX 35,000</td>
+                  <td>2026-01-15</td>
+                  <td>
+                    <span class="status status-pending"> Pending </span>
+                  </td>
+                  <td class="actions-cell">
+                    <button class="btn btn-small btn-pay">Mark Paid</button>
+                    <button class="btn btn-small btn-delete">Delete</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Sarah Kim</td>
+                  <td>Beans</td>
+                  <td>5</td>
+                  <td>UGX 21,000</td>
+                  <td>2026-01-10</td>
+                  <td>
+                    <span class="status status-overdue"> Overdue </span>
+                  </td>
+                  <td class="actions-cell">
+                    <button class="btn btn-small btn-pay">Mark Paid</button>
+                    <button class="btn btn-small btn-delete">Delete</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Peter Okello</td>
+                  <td>Rice</td>
+                  <td>8</td>
+                  <td>UGX 40,000</td>
+                  <td>2026-01-20</td>
+                  <td>
+                    <span class="status status-paid"> Paid </span>
+                  </td>
+                  <td class="actions-cell">
+                    <button class="btn btn-small btn-pay" disabled>Paid</button>
+                    <button class="btn btn-small btn-delete">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ====== MODAL: ADD CREDIT SALE ====== -->
+    <div class="modal-overlay" id="creditSaleModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>Add Credit Sale</h2>
+          <button class="modal-close" id="closeCreditModal">&times;</button>
+        </div>
+
+        <form class="modal-form">
+          <div class="form-group">
+            <label>Customer Name</label>
+            <input type="text" required />
+          </div>
+
+          <div class="form-group">
+            <label>Product</label>
+            <input type="text" required />
+          </div>
+
+          <div class="form-group">
+            <label>Quantity</label>
+            <input type="number" required />
+          </div>
+
+          <div class="form-group">
+            <label>Total Amount</label>
+            <input type="number" required />
+          </div>
+
+          <div class="form-group">
+            <label>Due Date</label>
+            <input type="date" required />
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+              Save Credit Sale
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="cancelCreditModal"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    ====== PAGE SCRIPT (PLAIN JS) ======
+    <script>
+      const addCreditSaleBtn = document.getElementById("addCreditSaleBtn");
+      const creditModal = document.getElementById("creditSaleModal");
+      const closeCreditModal = document.getElementById("closeCreditModal");
+      const cancelCreditModal = document.getElementById("cancelCreditModal");
+
+      addCreditSaleBtn.addEventListener("click", () => {
+        creditModal.classList.add("active");
+      });
+
+      closeCreditModal.addEventListener("click", () => {
+        creditModal.classList.remove("active");
+      });
+
+      cancelCreditModal.addEventListener("click", () => {
+        creditModal.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>

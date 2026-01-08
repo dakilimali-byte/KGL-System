@@ -1,0 +1,390 @@
+/* ==============================
+   RESET & BASE STYLES
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #1f2933;
+}
+
+/* ==============================
+   PAGE LAYOUT
+============================== */
+
+.page-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ==============================
+   SIDEBAR
+============================== */
+
+.sidebar {
+    width: 260px;
+    background-color: #0f172a;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.sidebar-nav {
+    padding: 16px 0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.nav-item {
+    margin-bottom: 4px;
+}
+
+.nav-button {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #cbd5e1;
+    padding: 14px 24px;
+    text-align: left;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-button:hover {
+    background-color: #1e293b;
+    color: #ffffff;
+}
+
+.nav-item.active .nav-button {
+    background-color: #1e40af;
+    color: #ffffff;
+}
+
+/* ==============================
+   MAIN CONTENT
+============================== */
+
+.main-content {
+    flex: 1;
+    padding: 24px 32px;
+}
+
+/* ==============================
+   TOP BAR
+============================== */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.page-title {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.topbar-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* ==============================
+   BUTTONS
+============================== */
+
+.btn {
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #1e40af;
+}
+
+.btn-secondary {
+    background-color: #e5e7eb;
+    color: #1f2933;
+}
+
+.btn-secondary:hover {
+    background-color: #d1d5db;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.btn-pay {
+    background-color: #22c55e;
+    color: #ffffff;
+}
+
+.btn-pay:hover {
+    background-color: #16a34a;
+}
+
+.btn-pay[disabled] {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.btn-delete {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+
+.btn-delete:hover {
+    background-color: #dc2626;
+}
+
+/* ==============================
+   CONTENT SECTION
+============================== */
+
+.content-section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* ==============================
+   TABLE
+============================== */
+
+.table-container {
+    overflow-x: auto;
+}
+
+.credit-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.credit-table thead {
+    background-color: #f1f5f9;
+}
+
+.credit-table th,
+.credit-table td {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.credit-table th {
+    font-weight: 700;
+    color: #334155;
+}
+
+.credit-table tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.credit-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.actions-cell {
+    display: flex;
+    gap: 8px;
+}
+
+/* ==============================
+   STATUS BADGES
+============================== */
+
+.status {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 999px;
+}
+
+.status-pending {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.status-overdue {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.status-paid {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+/* ==============================
+   MODAL
+============================== */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.modal-close:hover {
+    color: #0f172a;
+}
+
+/* ==============================
+   FORM
+============================== */
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.form-group input {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .sidebar-nav ul {
+        display: flex;
+    }
+
+    .nav-button {
+        white-space: nowrap;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 22px;
+    }
+
+    .btn {
+        padding: 8px 12px;
+    }
+
+    .modal {
+        margin: 16px;
+    }
+}

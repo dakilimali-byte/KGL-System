@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+
+    <!-- ====== PAGE WRAPPER ====== -->
+    <div class="page-container">
+
+        <!-- ====== SIDEBAR ====== -->
+        <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2 class="logo">Karibu Groceries</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="nav-item">
+             <button
+                class="nav-button"
+                onclick="window.location.href='stock_management.html'"
+              >
+                Stock Management
+              </button>
+            </li>
+            <li class="nav-item">
+               <button
+                class="nav-button"
+                onclick="window.location.href='credit_sales_management.html'"
+              >
+                Credit Sales
+              </button>
+            </li>
+            <li class="nav-item active">
+              <button
+                class="nav-button"
+                onclick="window.location.href='dashboard.html'"
+              >
+                Dashboard
+              </button>
+            </li>
+             <li class="nav-item">
+              <button
+                class="nav-button"
+                onclick="window.location.href='directors_sales_overview.html'"
+              >
+                Sales Overview
+              </button>
+            </li>
+            <li class="nav-item">
+                <button
+                class="nav-button"
+                onclick="window.location.href='sales_entry.html'"
+              >
+                Sales Entry
+              </button>
+            </li>
+             <li class="nav-item">
+              <button
+                class="nav-button"
+                onclick="window.location.href='produce_procurement_form.html'"
+              >
+                Produce Procurement
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+        <!-- ====== MAIN CONTENT ====== -->
+        <main class="main-content">
+
+            <!-- ====== TOP BAR ====== -->
+            <header class="topbar">
+                <h1 class="page-title">Dashboard</h1>
+            </header>
+
+            <!-- ====== STATS CARDS ====== -->
+            <section class="stats-cards">
+
+                <div class="stat-card">
+                    <h3>Total Products</h3>
+                    <p class="stat-value">86</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Low Stock Items</h3>
+                    <p class="stat-value highlight-warning">12</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Today’s Sales</h3>
+                    <p class="stat-value">UGX 420,000</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Outstanding Credit</h3>
+                    <p class="stat-value highlight-danger">
+                        UGX 1,100,000
+                    </p>
+                </div>
+
+            </section>
+
+            <!-- ====== RECENT ACTIVITY ====== -->
+            <section class="content-section">
+
+                <h2 class="section-title">Recent Activity</h2>
+
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <span class="activity-time">10:15 AM</span>
+                        <span class="activity-text">
+                            Added new stock: Rice (50 units)
+                        </span>
+                    </li>
+
+                    <li class="activity-item">
+                        <span class="activity-time">9:40 AM</span>
+                        <span class="activity-text">
+                            Credit sale recorded for John Doe
+                        </span>
+                    </li>
+
+                    <li class="activity-item">
+                        <span class="activity-time">8:30 AM</span>
+                        <span class="activity-text">
+                            Procurement saved for Beans
+                        </span>
+                    </li>
+                </ul>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Management</title>
+
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="stock_management.css" />
+  </head>
+  <body>
+    <!-- ====== PAGE WRAPPER ====== -->
+    <div class="page-container">
+      <!-- ====== SIDEBAR ====== -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2 class="logo">Karibu Groceries</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+          <ul>
+             <li class="nav-item active">
+              <button
+                class="nav-button"
+                onclick="window.location.href='stock_management.html'"
+              >
+                Stock Management
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-button"
+                onclick="window.location.href='credit_sales_management.html'"
+              >
+                Credit Sales
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-button"
+                onclick="window.location.href='dashboard.html'"
+              >
+                Dashboard
+              </button>
+            </li>
+               <li class="nav-item">
+              <button
+                class="nav-button"
+                onclick="window.location.href='directors_sales_overview.html'"
+              >
+                Sales Overview
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="nav-button"
+                onclick="window.location.href='sales_entry.html'"
+              >
+                Sales Entry
+              </button>
+            </li>
+             <li class="nav-item">
+              <button
+                class="nav-button"
+                onclick="window.location.href='produce_procurement_form.html'"
+              >
+                Produce Procurement
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- ====== MAIN CONTENT ====== -->
+      <main class="main-content">
+        <!-- ====== TOP BAR ====== -->
+        <header class="topbar">
+          <h1 class="page-title">Stock Management</h1>
+
+          <div class="topbar-actions">
+            <button class="btn btn-primary" id="addStockBtn">Add Stock</button>
+          </div>
+        </header>
+
+        <!-- ====== CONTENT SECTION ====== -->
+        <section class="content-section">
+          <!-- ====== STOCK TABLE ====== -->
+          <div class="table-container">
+            <table class="stock-table">
+              <thead>
+                <tr>
+                  <th>Product Name</th>
+                  <th>Category</th>
+                  <th>Quantity</th>
+                  <th>Unit Price</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>Maize Flour</td>
+                  <td>Grains</td>
+                  <td>120</td>
+                  <td>UGX 3,500</td>
+                  <td>
+                    <span class="status status-available"> Available </span>
+                  </td>
+                  <td class="actions-cell">
+                    <button class="btn btn-small btn-edit">Edit</button>
+                    <button class="btn btn-small btn-delete">Delete</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Beans</td>
+                  <td>Legumes</td>
+                  <td>30</td>
+                  <td>UGX 4,200</td>
+                  <td>
+                    <span class="status status-low"> Low Stock </span>
+                  </td>
+                  <td class="actions-cell">
+                    <button class="btn btn-small btn-edit">Edit</button>
+                    <button class="btn btn-small btn-delete">Delete</button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Rice</td>
+                  <td>Cereals</td>
+                  <td>0</td>
+                  <td>UGX 5,000</td>
+                  <td>
+                    <span class="status status-out"> Out of Stock </span>
+                  </td>
+                  <td class="actions-cell">
+                    <button class="btn btn-small btn-edit">Edit</button>
+                    <button class="btn btn-small btn-delete">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ====== MODAL: ADD STOCK ====== -->
+    <div class="modal-overlay" id="addStockModal">
+      <div class="modal">
+        <div class="modal-header">
+          <h2>Add New Stock</h2>
+          <button class="modal-close" id="closeModalBtn">&times;</button>
+        </div>
+
+        <form class="modal-form">
+          <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" required />
+          </div>
+
+          <div class="form-group">
+            <label>Category</label>
+            <input type="text" required />
+          </div>
+
+          <div class="form-group">
+            <label>Quantity</label>
+            <input type="number" required />
+          </div>
+
+          <div class="form-group">
+            <label>Unit Price</label>
+            <input type="number" required />
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save Stock</button>
+            <button type="button" class="btn btn-secondary" id="cancelModalBtn">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ====== PAGE SCRIPT (PLAIN JS) ====== -->
+    <script>
+      const addStockBtn = document.getElementById("addStockBtn");
+      const modal = document.getElementById("addStockModal");
+      const closeModalBtn = document.getElementById("closeModalBtn");
+      const cancelModalBtn = document.getElementById("cancelModalBtn");
+
+      addStockBtn.addEventListener("click", () => {
+        modal.classList.add("active");
+      });
+
+      closeModalBtn.addEventListener("click", () => {
+        modal.classList.remove("active");
+      });
+
+      cancelModalBtn.addEventListener("click", () => {
+        modal.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>
