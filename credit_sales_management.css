@@ -1,6 +1,4 @@
-/* ==============================
-   RESET & BASE STYLES
-============================== */
+/* RESET & BASE STYLES */
 
 * {
     margin: 0;
@@ -14,18 +12,14 @@ body {
     color: #1f2933;
 }
 
-/* ==============================
-   PAGE LAYOUT
-============================== */
+/* PAGE LAYOUT */
 
 .page-container {
     display: flex;
     min-height: 100vh;
 }
 
-/* ==============================
-   SIDEBAR
-============================== */
+/*SIDEBAR */
 
 .sidebar {
     width: 260px;
@@ -79,18 +73,14 @@ body {
     color: #ffffff;
 }
 
-/* ==============================
-   MAIN CONTENT
-============================== */
+/*MAIN CONTENT*/
 
 .main-content {
     flex: 1;
     padding: 24px 32px;
 }
 
-/* ==============================
-   TOP BAR
-============================== */
+/* TOP BAR*/
 
 .topbar {
     display: flex;
